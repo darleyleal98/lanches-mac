@@ -1,3 +1,6 @@
+using LanchesMac.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace LanchesMac
 {
     public class Program
@@ -6,8 +9,14 @@ namespace LanchesMac
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews();
+            builder.Configuration.AddJsonFile("appsettings.json");
+            var configuration = builder.Configuration.GetConnectionString("DefaultConnection");
 
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                    options.UseSqlServer(configuration));
+
+            builder.Services.AddControllersWithViews();
+            
             var app = builder.Build();
 
             if (!app.Environment.IsDevelopment())
