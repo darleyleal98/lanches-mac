@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace LanchesMac.Repositories
 {
-    public class LancheRepositorio : ILancheRepository
+    public class LancheRepository : ILancheRepository
     {
         private readonly AppDbContext _context;
 
-        public LancheRepositorio(AppDbContext context)
+        public LancheRepository(AppDbContext context)
         {
             _context = context;
         }

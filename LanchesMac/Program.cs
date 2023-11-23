@@ -1,4 +1,6 @@
 using LanchesMac.Context;
+using LanchesMac.Repositories;
+using LanchesMac.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace LanchesMac
@@ -14,6 +16,9 @@ namespace LanchesMac
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlServer(configuration));
+
+            builder.Services.AddTransient<ILancheRepository, LancheRepository>();
+            builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
             builder.Services.AddControllersWithViews();
             
