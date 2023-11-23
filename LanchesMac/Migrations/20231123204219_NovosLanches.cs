@@ -4,7 +4,7 @@
 
 namespace LanchesMac.Migrations
 {
-    public partial class PopularLanches : Migration
+    public partial class NovosLanches : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,13 +18,13 @@ namespace LanchesMac.Migrations
                                          Nome, 
                                          Preco) 
                    VALUES (1, 
-                           'Pão, hambúrguer, ovo, presunto, queijo e batata', 
-                           'Delicioso pão de hambúrguer de primeira qualidade acompanhado com batata palha', 
+                           'Pão, hambúrguer, bacon, carne desfiada, presunto, queijo e batata', 
+                           'Delicioso pão de hambúrguer de primeira qualidade acompanhado de molho barbecue', 
                            1, 
                            'http://www.macoratti.net/Imagens/Lanches/cheesesalada_thumb.jpg', 
                            'http://www.macoratti.net/Imagens/Lanches/cheesesalada.jpg', 
                            0, 
-                           'Cheese Salada', 
+                           'Cheese Bacon', 
                            12.50);"
             );
 
@@ -38,18 +38,19 @@ namespace LanchesMac.Migrations
                                          Nome, 
                                          Preco) 
                    VALUES (1, 
-                           'Pão, hambúrguer, ovo, presunto, queijo e batata', 
+                           'Pão, hambúrguer, presunto, queijo e batata', 
                            'Delicioso pão de hambúrguer de primeira qualidade acompanhado com batata palha', 
                            1, 
                            'http://www.macoratti.net/Imagens/Lanches/cheesesalada_thumb.jpg', 
                            'http://www.macoratti.net/Imagens/Lanches/cheesesalada.jpg', 
                            0, 
-                           'Cheese Salada', 
+                           'Cheese Burguer', 
                            12.50);"
             );
         }
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+
         }
     }
 }
