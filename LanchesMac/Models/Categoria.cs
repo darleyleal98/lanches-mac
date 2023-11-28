@@ -14,7 +14,6 @@ namespace LanchesMac.Models
         [Display(Name ="Nome")]
         public string CategoriaNome { get; set; }
 
-
         [StringLength(200, ErrorMessage = "O tamanho máximo é de 100 caracteres")]
         [Required(ErrorMessage = "Informe o nome da categoria")]
         [Display(Name = "Descrição")]
