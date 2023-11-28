@@ -8,10 +8,10 @@ namespace LanchesMac.Controllers
         public IActionResult Index()
         {
             var sobremesaListViewModels = new SobremesaListViewModel();
-            sobremesaListViewModels.Sobremesas = _lancheRepository.Lanches;
-            lanchesListViewModels.CategoriaAtual = "Categoria Atual";
+            sobremesaListViewModels.Sobremesas = sobremesaListViewModels.Sobremesas;
+            sobremesaListViewModels.CategoriaAtual = "Categoria Atual";
 
-            return View(lanchesListViewModels);
+            return View(sobremesaListViewModels);
         }
     }
 }

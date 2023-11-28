@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LanchesMac.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LanchesMac.Controllers
 {
@@ -6,7 +7,11 @@ namespace LanchesMac.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var bebidasListViewModels = new SobremesaListViewModel();
+            bebidasListViewModels.Sobremesas = bebidasListViewModels.Sobremesas;
+            bebidasListViewModels.CategoriaAtual = "Categoria Atual";
+
+            return View(bebidasListViewModels);
         }
     }
 }
