@@ -1,10 +1,9 @@
 ﻿using LanchesMac.Context;
 using LanchesMac.Models;
-using LanchesMac.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace LanchesMac.Repositories
+namespace LanchesMac.Repositories.Interfaces
 {
     public class SobremesaRepository : ISobremesaRepository
     {
@@ -15,13 +14,12 @@ namespace LanchesMac.Repositories
             _context = context;
         }
         public IEnumerable<Sobremesa> Sobremesas => _context.Sobremesas.Include(categoria => categoria.Categoria);
-        public IEnumerable<Sobremesa> LanchesPreferidos => _context.Sobremesas
-                                   .Where(lanche => lanche.IsLanchePreferido)
+        public IEnumerable<Sobremesa> SobremesasPrferidas => _context.Sobremesas
+                                   .Where(sobremesas => sobremesas.IsSobremesaPreferida)
                                    .Include(categoria => categoria.Categoria);
 
-        public Lanche GetLancheById(int lancheId) => _context.Lanches.
-                                                     FirstOrDefault(lanche =>
-                                                     lanche.LancheId == lancheId);
+        public Sobremesa GetSobremesaById(int sobremesaId) => _context.Sobremesas.
+                                                     FirstOrDefault(sobremesas =>
+                                                     sobremesas.SobremesaId == sobremesaId);
     }
-}
 }

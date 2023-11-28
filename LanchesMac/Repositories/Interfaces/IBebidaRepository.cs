@@ -6,6 +6,6 @@ namespace LanchesMac.Repositories.Interfaces
     {
         IEnumerable<Bebida> Bebidas { get; }
         IEnumerable<Bebida> BebidasPreferidas { get; }
-        Bebida GetLancheById(int bebidaId);
+        Bebida GetBebidaById(int bebidaId);
     }
 }

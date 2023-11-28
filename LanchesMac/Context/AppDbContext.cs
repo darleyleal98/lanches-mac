@@ -9,7 +9,7 @@ namespace LanchesMac.Context
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Lanche> Lanches { get; set; }
-        public DbSet<Lanche> Sobremesas { get; set; }
-        public DbSet<Lanche> Bebidas { get; set; }
+        public DbSet<Sobremesa> Sobremesas { get; set; }
+        public DbSet<Bebida> Bebidas { get; set; }
     }
 }

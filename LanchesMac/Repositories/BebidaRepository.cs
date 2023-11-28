@@ -1,9 +1,9 @@
 ﻿using LanchesMac.Context;
 using LanchesMac.Models;
-using LanchesMac.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace LanchesMac.Repositories
+namespace LanchesMac.Repositories.Interfaces
 {
     public class BebidaRepository : IBebidaRepository
     {
@@ -14,15 +14,13 @@ namespace LanchesMac.Repositories
             _context = context;
         }
 
+        public IEnumerable<Bebida> Bebidas => _context.Bebidas.Include(categoria => categoria.Categoria);
+        public IEnumerable<Bebida> BebidasPreferidas => _context.Bebidas
+                                   .Where(bebida => bebida.IsBebidaPreferida)
+                                   .Include(categoria => categoria.Categoria);
 
-
-        public IEnumerable<Bebida> Bebidas => throw new NotImplementedException();
-
-        public IEnumerable<Bebida> BebidasPreferidas => throw new NotImplementedException();
-
-        public Bebida GetLancheById(int bebidaId)
-        {
-            throw new NotImplementedException();
-        }
+        public Bebida GetBebidaById(int bebidaId) => _context.Bebidas.
+                                                     FirstOrDefault(bebida =>
+                                                     bebida.BebidaId == bebidaId);
     }
 }
