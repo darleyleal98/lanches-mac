@@ -1,0 +1,15 @@
+﻿@model BebidasListViewModel
+
+<div>
+    <h2>@Model.CategoriaAtual</h2>
+    <hr />
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var bebidas in Model.Bebidas)
+        {
+            <partial name="_LanchesResumo" for="@bebidas" />
+        }
+    </div>
+</div>

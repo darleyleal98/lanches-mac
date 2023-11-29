@@ -1,0 +1,15 @@
+﻿@model SobremesaListViewModel
+
+<div>
+    <h2>@Model.CategoriaAtual</h2>
+    <hr />
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var sobremesa in Model.Sobremesas)
+        {
+            <partial name="_LanchesResumo" for="@sobremesa" />
+        }
+    </div>
+</div>
