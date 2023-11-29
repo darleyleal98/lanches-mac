@@ -8,15 +8,15 @@ namespace LanchesMac.Controllers
     {
         private readonly ISobremesaRepository _sobremesaRepository;
 
-        public SobremesaController(ISobremesaRepository _sobremesaRepository)
+        public SobremesaController(ISobremesaRepository sobremesaRepository)
         {
-            _sobremesaRepository = _sobremesaRepository;
+            _sobremesaRepository = sobremesaRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult List()
         {
             var sobremesaListViewModels = new SobremesaListViewModel();
-            sobremesaListViewModels.Sobremesas = sobremesaListViewModels.Sobremesas;
+            sobremesaListViewModels.Sobremesas = _sobremesaRepository.Sobremesas;
             sobremesaListViewModels.CategoriaAtual = "Sobremesas";
 
             return View(sobremesaListViewModels);

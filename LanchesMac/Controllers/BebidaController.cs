@@ -13,13 +13,14 @@ namespace LanchesMac.Controllers
             _bebidaRepository = bebidaRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult List()
         {
-            var bebidasListViewModels = new BebidaListViewModel();
-            bebidasListViewModels.Bebidas = bebidasListViewModels.Bebidas;
-            bebidasListViewModels.CategoriaAtual = "Bebidas";
 
-            return View(bebidasListViewModels);
+            var bebidaListViewModels = new BebidaListViewModel();
+            bebidaListViewModels.Bebidas = _bebidaRepository.Bebidas;
+            bebidaListViewModels.CategoriaAtual = "Bebidas";
+
+            return View(bebidaListViewModels);
         }
     }
 }

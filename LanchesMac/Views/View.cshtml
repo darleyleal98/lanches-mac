@@ -1,10 +1,10 @@
-﻿@model IEnumerable<LanchesMac.Models.Sobremesa>
+﻿@model IEnumerable<LanchesMac.Models.Bebida>
 
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = "View";
 }
 
-<h1>List</h1>
+<h1>View</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -31,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.ImagemThumbnailUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsSobremesaPreferida)
+                @Html.DisplayNameFor(model => model.IsBebidaPreferida)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.EmEstoque)
@@ -64,7 +64,7 @@
                 @Html.DisplayFor(modelItem => item.ImagemThumbnailUrl)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsSobremesaPreferida)
+                @Html.DisplayFor(modelItem => item.IsBebidaPreferida)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EmEstoque)
@@ -73,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.Categoria.CategoriaNome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SobremesaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SobremesaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SobremesaId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.BebidaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BebidaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BebidaId">Delete</a>
             </td>
         </tr>
 }

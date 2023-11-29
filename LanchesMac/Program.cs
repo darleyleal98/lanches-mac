@@ -18,6 +18,8 @@ namespace LanchesMac
                     options.UseSqlServer(configuration));
 
             builder.Services.AddTransient<ILancheRepository, LancheRepository>();
+            builder.Services.AddTransient<IBebidaRepository, BebidaRepository>();
+            builder.Services.AddTransient<ISobremesaRepository, SobremesaRepository>();
             builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
             builder.Services.AddControllersWithViews();
