@@ -9,7 +9,7 @@ namespace LanchesMac.Controllers
         {
             var bebidasListViewModels = new SobremesaListViewModel();
             bebidasListViewModels.Sobremesas = bebidasListViewModels.Sobremesas;
-            bebidasListViewModels.CategoriaAtual = "Categoria Atual";
+            bebidasListViewModels.CategoriaAtual = "Bebidas";
 
             return View(bebidasListViewModels);
         }
