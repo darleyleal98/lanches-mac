@@ -20,5 +20,7 @@ namespace LanchesMac.Models
         public string Descricao { get; set; }
 
         public List<Lanche> Lanches { get; set;}
+        public List<Sobremesa> Sobremesas { get; set;}
+        public List<Bebida> Bebidas { get; set;}
     }
 }

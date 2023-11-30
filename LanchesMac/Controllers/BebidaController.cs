@@ -15,7 +15,6 @@ namespace LanchesMac.Controllers
 
         public IActionResult List()
         {
-
             var bebidaListViewModels = new BebidaListViewModel();
             bebidaListViewModels.Bebidas = _bebidaRepository.Bebidas;
             bebidaListViewModels.CategoriaAtual = "Bebidas";
