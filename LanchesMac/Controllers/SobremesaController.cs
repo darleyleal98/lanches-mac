@@ -15,11 +15,11 @@ namespace LanchesMac.Controllers
 
         public IActionResult List()
         {
-            var sobremesaListViewModels = new SobremesaListViewModel();
-            sobremesaListViewModels.Sobremesas = _sobremesaRepository.Sobremesas;
-            sobremesaListViewModels.CategoriaAtual = "Sobremesas";
+            var sobremesaListViewModel = new SobremesaListViewModel();
+            sobremesaListViewModel.Sobremesas = _sobremesaRepository.Sobremesas;
+            sobremesaListViewModel.CategoriaAtual = "Sobremesas";
 
-            return View(sobremesaListViewModels);
+            return View(sobremesaListViewModel);
         }
     }
 }

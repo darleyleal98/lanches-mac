@@ -15,11 +15,11 @@ namespace LanchesMac.Controllers
 
         public IActionResult List()
         {
-            var bebidaListViewModels = new BebidaListViewModel();
-            bebidaListViewModels.Bebidas = _bebidaRepository.Bebidas;
-            bebidaListViewModels.CategoriaAtual = "Bebidas";
+            var bebidaListViewModel = new BebidaListViewModel();
+            bebidaListViewModel.Bebidas = _bebidaRepository.Bebidas;
+            bebidaListViewModel.CategoriaAtual = "Bebidas";
 
-            return View(bebidaListViewModels);
+            return View(bebidaListViewModel);
         }
     }
 }

@@ -15,11 +15,11 @@ namespace LanchesMac.Controllers
 
         public IActionResult List()
         {
-            var lanchesListViewModels = new LancheListViewModel();
-            lanchesListViewModels.Lanches = _lancheRepository.Lanches;
-            lanchesListViewModels.CategoriaAtual = "Lanches";
+            var lanchesListViewModel = new LancheListViewModel();
+            lanchesListViewModel.Lanches = _lancheRepository.Lanches;
+            lanchesListViewModel.CategoriaAtual = "Lanches";
 
-            return View(lanchesListViewModels);
+            return View(lanchesListViewModel);
         }
     }
 }
