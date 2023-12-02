@@ -1,4 +1,5 @@
-﻿using LanchesMac.Context;
+using LanchesMac.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace LanchesMac.Models
 {
@@ -85,6 +86,16 @@ namespace LanchesMac.Models
 
             _context.SaveChanges();
             return quantidadeLocal;
+        }
+
+        public List<CarrinhoCompraItem> GetCarrinhoCompraItens()
+        {
+            return CarrinhoCompraItens ?? 
+                            (CarrinhoCompraItens = 
+                             _context.CarrinhoComprasItens
+                             .Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
+                             .Include(s => s.Lanche)
+                             .ToList());
         }
     }
 }
