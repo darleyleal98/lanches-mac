@@ -17,6 +17,23 @@ namespace LanchesMac
             builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlServer(configuration));
 
+            void ConfigureServices(IServiceCollection services)
+            {
+                // Adiciona uma implementação padrão de IDistributedCache
+                services.AddDistributedMemoryCache();
+                services.AddSession();
+
+                /// <summary>
+                /// 
+                /// Com base em um dicionário ou tabela hash no servidor, o estado
+                /// da e sessão persiste os dados através das requisições de uma navegador.
+                /// O estado da sessão é mantido, dando ao cliente um cookie que contém
+                /// o ID da sessão, que é enviado ao servidor com cada solicitação.
+                /// 
+                /// </summary>
+                
+            }
+
             builder.Services.AddTransient<ILancheRepository, LancheRepository>();
             builder.Services.AddTransient<IBebidaRepository, BebidaRepository>();
             builder.Services.AddTransient<ISobremesaRepository, SobremesaRepository>();
