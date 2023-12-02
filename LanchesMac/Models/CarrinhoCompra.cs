@@ -12,7 +12,7 @@ namespace LanchesMac.Models
         }
 
         public string CarrinhoCompraId { get; set; }
-        public List<CarrinhoCompraItem> CarrinhoCompraItens {  get; set; }
+        public List<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
 
         public static CarrinhoCompra GetCarrinho(IServiceProvider services)
         {
@@ -59,6 +59,32 @@ namespace LanchesMac.Models
                 carrinhoCompraItem.Quantidade++;
             }
             _context.SaveChanges();
+        }
+
+        public int RemoveDoCarrinho(Lanche lanche)
+        {
+            var carrinhoCompraItem =
+                _context.CarrinhoComprasItens.SingleOrDefault(
+                    value => value.Lanche.LancheId == lanche.LancheId &&
+                    value.CarrinhoCompraId == CarrinhoCompraId);
+
+            var quantidadeLocal = 0;
+
+            if (carrinhoCompraItem != null)
+            {
+                if (carrinhoCompraItem.Quantidade >= 1)
+                {
+                    carrinhoCompraItem.Quantidade--;
+                    quantidadeLocal = carrinhoCompraItem.Quantidade;
+                }
+                else
+                {
+                    _context.CarrinhoComprasItens.Remove(carrinhoCompraItem);
+                }
+            }
+
+            _context.SaveChanges();
+            return quantidadeLocal;
         }
     }
 }
