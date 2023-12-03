@@ -41,27 +41,23 @@ namespace LanchesMac.Controllers
         /// </summary>
 
         public RedirectToActionResult AdicionarItemDoCarrinhoCompra(int lancheId)
-        {
-            
+        {          
             var lancheSeleciondo = _lancheRepository.Lanches.FirstOrDefault(p =>  p.LancheId == lancheId);
 
             if (lancheSeleciondo != null)
             {
                 _carrinhoCompra.AdicionarAoCarrinho(lancheSeleciondo);
             }
-
             return RedirectToAction("Index");   
         }
         public IActionResult RemoverItemDoCarrinhoCompra(int lancheId)
         {
-
             var lancheSeleciondo = _lancheRepository.Lanches.FirstOrDefault(p => p.LancheId == lancheId);
 
             if (lancheSeleciondo != null)
             {
                 _carrinhoCompra.RemoveDoCarrinho(lancheSeleciondo);
             }
-
             return RedirectToAction("Index");
         }
     }
