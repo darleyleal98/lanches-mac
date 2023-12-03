@@ -28,6 +28,7 @@ namespace LanchesMac
             /// 
             /// </summary>
             
+
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();
 
