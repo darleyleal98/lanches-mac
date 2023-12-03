@@ -48,6 +48,7 @@ namespace LanchesMac
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
