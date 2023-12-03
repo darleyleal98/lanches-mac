@@ -1,4 +1,5 @@
 using LanchesMac.Context;
+using LanchesMac.Models;
 using LanchesMac.Repositories;
 using LanchesMac.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,12 @@ namespace LanchesMac
             builder.Services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlServer(configuration));
 
+            builder.Services.AddTransient<ILancheRepository, LancheRepository>();
+            builder.Services.AddTransient<IBebidaRepository, BebidaRepository>();
+            builder.Services.AddTransient<ISobremesaRepository, SobremesaRepository>();
+            builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+
+
             /// <summary>
             /// 
             /// Adiciona uma implementação padrão de IDistributedCache
@@ -27,18 +34,11 @@ namespace LanchesMac
             /// o ID da sessão, que é enviado ao servidor com cada solicitação.
             /// 
             /// </summary>
-            
 
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();
-
             builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            
-            builder.Services.AddTransient<ILancheRepository, LancheRepository>();
-            builder.Services.AddTransient<IBebidaRepository, BebidaRepository>();
-            builder.Services.AddTransient<ISobremesaRepository, SobremesaRepository>();
-            builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-
+            builder.Services.AddScoped(scoped => CarrinhoCompra.GetCarrinho(scoped));
             builder.Services.AddControllersWithViews();
             
             var app = builder.Build();
@@ -48,7 +48,6 @@ namespace LanchesMac
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
